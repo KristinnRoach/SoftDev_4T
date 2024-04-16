@@ -1,0 +1,73 @@
+/*
+// Gradient mixin
+@mixin gradient-background($start-color, $end-color) {
+  background-image: linear-gradient(to right, $start-color, $end-color);
+}
+*/
+.bg-dark {
+  -fx-background-color: #41B06E;
+  -fx-text-fill: #FFF5E0;
+}
+
+.bg-bright {
+  -fx-background-color: #8DECB4;
+  -fx-text-fill: #141E46;
+}
+
+.bg-brighter {
+  -fx-background-color: #FFF5E0;
+  -fx-text-fill: #41B06E;
+}
+
+.app-title {
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
+}
+
+.search-box {
+  -fx-text-fill: #141E46;
+}
+
+.submit-button {
+  -fx-background-color: #41B06E;
+  -fx-text-fill: #FFF5E0;
+}
+
+/*
+
+#root {
+  -fx-background-color: $bg-bright;
+  -fx-text-fill: $text-dark;
+}
+
+
+#tabpane {
+   -fx-background-color: $bg-dark;
+}
+
+#flightTab {
+    -fx-background-color: $bg-dark;
+}
+
+Button {
+  -fx-background-color: $bg-dark;
+  -fx-text-fill: $text-bright;
+  //-fx-font-size: 14px;
+}
+
+
+Vbox {
+  -fx-font-family: Arial, sans-serif;
+  -fx-background-color: green;
+  -fx-text-fill: #fff;
+  // @include gradient-background($primary-color, $secondary-color);
+}
+
+
+Button {
+  -fx-background-color: yellow;
+  -fx-text-fill: red;
+  //-fx-font-size: 14px;
+}
+*/
+
+/*# sourceMappingURL=style.css.map */

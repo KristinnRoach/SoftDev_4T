@@ -1,0 +1,82 @@
+@import '_colors.scss';
+
+.bg-dark {
+  -fx-background-color: $bg-dark;
+  -fx-text-fill: $text-bright;
+}
+
+.bg-bright {
+  -fx-background-color: $bg-bright;
+  -fx-text-fill: $text-dark;
+}
+
+.bg-brighter {
+  -fx-background-color: $text-bright;
+  -fx-text-fill: $bg-dark;
+}
+
+.header {
+
+}
+
+.app-title {
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
+}
+
+.app-tagline {
+
+}
+
+.search-box {
+  // -fx-background-color: $bg-bright;
+  -fx-text-fill: $text-dark;
+}
+
+.submit-button {
+  -fx-background-color: $bg-dark;
+  -fx-text-fill: $text-bright;
+}
+
+
+
+
+
+
+
+/*
+
+#root {
+  -fx-background-color: $bg-bright;
+  -fx-text-fill: $text-dark;
+}
+
+
+#tabpane {
+   -fx-background-color: $bg-dark;
+}
+
+#flightTab {
+    -fx-background-color: $bg-dark;
+}
+
+Button {
+  -fx-background-color: $bg-dark;
+  -fx-text-fill: $text-bright;
+  //-fx-font-size: 14px;
+}
+
+
+Vbox {
+  -fx-font-family: Arial, sans-serif;
+  -fx-background-color: green;
+  -fx-text-fill: #fff;
+  // @include gradient-background($primary-color, $secondary-color);
+}
+
+
+Button {
+  -fx-background-color: yellow;
+  -fx-text-fill: red;
+  //-fx-font-size: 14px;
+}
+*/

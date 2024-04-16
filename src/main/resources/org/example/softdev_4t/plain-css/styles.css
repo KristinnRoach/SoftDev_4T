@@ -1,0 +1,16 @@
+.root {
+  --bg-bright: #8DECB4;
+  --bg-dark: #41B06E;
+  --text-bright: #FFF5E0;
+  --text-dark: #141E46;
+}
+
+.bg-dark {
+  -fx-background-color: var(--bg-dark);
+  -fx-text-fill: var(--text-bright);
+}
+
+.bg-bright {
+  -fx-background-color: var(--bg-bright);
+  -fx-text-fill: var(--text-dark);
+}
