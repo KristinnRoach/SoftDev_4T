@@ -9,6 +9,11 @@
   -fx-text-fill: #FFF5E0;
 }
 
+.bg-darker {
+  -fx-background-color: #141E46;
+  -fx-text-fill: #FFF5E0;
+}
+
 .bg-bright {
   -fx-background-color: #8DECB4;
   -fx-text-fill: #141E46;

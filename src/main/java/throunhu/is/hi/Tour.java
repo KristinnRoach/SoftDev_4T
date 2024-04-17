@@ -3,6 +3,7 @@ package throunhu.is.hi;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -124,19 +125,19 @@ public class Tour {
 
     // Method / Aðferð
 
-    public List<String> getInfo() {
-        List<String> fieldsList = new ArrayList<>();
-        fieldsList.add(String.valueOf(tourID));
-        fieldsList.add(name);
-        fieldsList.add(type);
-        fieldsList.add(location);
-        fieldsList.add(String.valueOf(pricePerPerson));
-        fieldsList.add(tourDate.toString());
-        fieldsList.add(tourTime.toString());
-        fieldsList.add(String.valueOf(limitSpots));
-        fieldsList.add(String.valueOf(spaceAvailable));
-        return fieldsList;
+    public String[] getInfo() {
+        return new String[]{
+                ""+ tourID,
+        name,
+        type,
+        location,
+        "Price: " + pricePerPerson + " ISK.",
+        tourDate.toString(),
+        tourTime.toString(),
+        "Space for: " + limitSpots +" persons.",
+        };
     }
+
 }
 
 

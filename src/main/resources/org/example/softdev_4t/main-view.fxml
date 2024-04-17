@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -72,18 +73,18 @@
                   <Label alignment="TOP_LEFT" text="From" GridPane.rowIndex="1" />
                   <Label alignment="TOP_LEFT" text="To" GridPane.rowIndex="2" />
                   <Label alignment="TOP_LEFT" text="Departure Date" GridPane.rowIndex="3" />
-                  <Label alignment="TOP_LEFT" text="Passengers" GridPane.rowIndex="4" />
-                  <TextField fx:id="dateTextField" alignment="TOP_LEFT" promptText="2024-06-19" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="nrPassengers" alignment="TOP_LEFT" promptText="How many?" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Button fx:id="searchButton" alignment="CENTER" contentDisplay="CENTER" minWidth="200.0" mnemonicParsing="false" onAction="#onSearch" prefHeight="64.0" prefWidth="187.0" styleClass="submit-button" text="Search!" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.vgrow="SOMETIMES">
+                  <Label alignment="TOP_LEFT" text="Passengers" GridPane.rowIndex="5" />
+                  <TextField fx:id="nrPassengers" alignment="TOP_LEFT" promptText="How many?" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button fx:id="searchButton" alignment="CENTER" contentDisplay="CENTER" minWidth="200.0" mnemonicParsing="false" onAction="#onSearch" prefHeight="30.0" prefWidth="100.0" styleClass="submit-button" text="Search!" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.vgrow="SOMETIMES">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                   </Button>
                   <TextField fx:id="fromLocation" alignment="TOP_LEFT" promptText="Departing location" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="toLocation" alignment="TOP_LEFT" promptText="Destination" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label text="Return Date" GridPane.rowIndex="5" />
-                  <TextField promptText="Date or blank" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label text="Return Date" GridPane.rowIndex="4" />
+                  <DatePicker fx:id="depDatePicker" promptText="pick a date !" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="retDatePicker" promptText="pick a date !" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </GridPane>
             </children>
          </AnchorPane>
@@ -91,17 +92,69 @@
                 <TabPane id="tabpane" maxWidth="800.0" minWidth="200.0" prefWidth="500.0" rotateGraphic="true" styleClass="bg-bright" tabClosingPolicy="UNAVAILABLE">
                 <tabs>
                     <Tab id="flightTab" text="Flights">
-                       <ListView fx:id="flightListView" styleClass="bg-bright" />
+                       <Accordion fx:id="resAccFlight" styleClass="bg-bright" />
                     </Tab>
 
       
                    <Tab id="hotel-tab" text="Hotels">
-                      <ListView fx:id="hotelListView" styleClass="bg-bright" />
+                      <Accordion fx:id="resAccHotel" styleClass="bg-bright" />
                    </Tab>
       
                     <Tab id="trip-tab" text="Trips">
-                       <ListView fx:id="tourListView" styleClass="bg-bright" />
+                       <Accordion fx:id="resAccTour" styleClass="bg-bright" />
                     </Tab>
+
+                   <Tab id="cartTab" text="Cart">
+                      <VBox>
+                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="445.0" text="My Cart">
+                            <padding>
+                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                            <font>
+                               <Font size="16.0" />
+                            </font></Label>
+                         <VBox fx:id="cartVb" prefHeight="224.0" prefWidth="476.0" styleClass="bg-brighter">
+                      </VBox>
+
+                      <Button fx:id="clearCartBtn" alignment="CENTER" contentDisplay="CENTER" minHeight="30.0" minWidth="50.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" text="Clear" textAlignment="CENTER" VBox.vgrow="SOMETIMES">
+                        <padding>
+                           <Insets bottom="5.0" />
+                        </padding></Button>
+
+                      <GridPane fx:id="bookingForm" alignment="CENTER" layoutX="10.0" layoutY="83.0" prefHeight="393.0" prefWidth="476.0" vgap="10.0">
+                         <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="110.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="110.0" prefWidth="130.0" />
+                         </columnConstraints>
+                         <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                         </rowConstraints>
+                         <padding>
+                            <Insets bottom="30.0" left="10.0" right="20.0" top="3.0" />
+                         </padding>
+                         <Label alignment="CENTER" text="Booking Details" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                            <font>
+                               <Font size="20.0" />
+                            </font>
+                         </Label>
+                         <Label alignment="TOP_LEFT" text="Name" GridPane.rowIndex="1" />
+                         <Label alignment="TOP_LEFT" text="Email" GridPane.rowIndex="2" />
+                         <Button fx:id="confirmBookingBtn" alignment="TOP_CENTER" contentDisplay="CENTER" minWidth="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="submit-button" text="Confirm Booking!" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.vgrow="SOMETIMES">
+                            <opaqueInsets>
+                               <Insets />
+                            </opaqueInsets>
+                         </Button>
+                         <TextField fx:id="userName" alignment="TOP_LEFT" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                         <TextField fx:id="userEmail" alignment="TOP_LEFT" promptText="example@something.org" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                      </GridPane>
+                      </VBox>
+
+                   </Tab>
          </tabs>
                 </TabPane>
 
